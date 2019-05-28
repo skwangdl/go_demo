@@ -7,7 +7,7 @@ func sum(values [] int, resultChan chan int)  {
 	for _, value := range values{
 		sum += value
 	}
-	resultChan <- sum
+	resultChan <- sum  //将计算结果发送到channel中
 }
 
 func main(){
@@ -15,6 +15,6 @@ func main(){
 	resultChan := make(chan int, 2)
 	go sum(values[:len(values)/2], resultChan)
 	go sum(values[len(values)/2:], resultChan)
-	sum1, sum2 := <-resultChan, <-resultChan
+	sum1, sum2 := <-resultChan, <-resultChan  //接受计算结果
 	fmt.Println("Result:", sum1, sum2, sum1+sum2)
 }
