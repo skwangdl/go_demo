@@ -78,6 +78,48 @@ func main()  {
 	fmt.Printf("The length of \"%s\" is %d \n", str, len(str))
 	fmt.Printf("The first character of \"%s\" is %c.\n", str, ch)
 
+	array := [10]int{1,2,3,4,5,6,7,8,9,10}	//创建并遍历数组，在函数体中无法修改传入的数组的内容
+	for i, v := range array{
+		fmt.Println("Array element[", i, "]=", v)
+	}
+	var mySlice []int = array[:5]			//基于数组创建数组切片
+	fmt.Println("\nElements of mySlice: ")
+	for _,v := range mySlice{
+		fmt.Print(v, " ")
+	}
+	fmt.Println()
+
+	mySlice1 := make([]int, 5)			//初始元素个数为5的切片数组，元素初始值为0
+	mySlice2 := make([]int, 5, 10)		//创建一个初始元素个数为5的数组切片，元素初始值为0，并预留10个元素的存储空间
+	mySlice3 := []int{1, 2, 3, 4, 5}	//直接创建并初始化包含5个元素的数组切片
+	for i, v := range mySlice1 {
+		fmt.Println("mySlice1[", i, "] =", v)
+	}
+	for i, v := range mySlice2 {
+		fmt.Println("mySlice2[", i, "] =", v)
+	}
+	for i, v := range mySlice3 {
+		fmt.Println("mySlice3[", i, "] =", v)
+	}
+	fmt.Println("len(mySlice):", len(mySlice2))	//数组切片中当前所存储的元素个数
+	fmt.Println("cap(mySlice):", cap(mySlice2))	//数组切片分配的空间大小
+
+	tempMap := make(map[string] string)		//创建Map
+	tempMap["a"] = "key1";
+	tempMap["b"] = "key2"
+	tempStr1, ok1 := tempMap["a"]
+	if ok1 {
+		fmt.Println("Found str ", tempStr1)
+	} else {
+		fmt.Println("Did not find str in tempMap.")
+	}
+	delete(tempMap, "b")			//从Map内删除元素
+	tempStr2, ok2 := tempMap["b"]
+	if ok2 {
+		fmt.Println("Found str ", tempStr2)
+	} else {
+		fmt.Println("Did not find str in tempMap, it is deleted.")
+	}
 }
 
 func GetName() (firstName, lastName, nickName string){
