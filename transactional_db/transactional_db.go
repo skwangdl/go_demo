@@ -53,5 +53,4 @@ func main() {
         tx.Rollback() //此时处理错误，会忽略doSomthing的异常
         log.Fatalln(err)
     }
-
 }
