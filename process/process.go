@@ -3,6 +3,23 @@ package main
 import "fmt"
 
 func main(){
+
+	//条件语句
+	value := 1
+	if value < 2{
+		fmt.Println("a")
+	}else {
+		fmt.Println("b")
+	}
+
+	//选择语句
+	switch value {
+	case 0:
+		fmt.Println(value)
+	case 1:
+		fmt.Println(value)
+	}
+
 	sum := 0
 	for{			//go不支持while与do-while语句，使用for代替进行无限循环	
 		sum ++
